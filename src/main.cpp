@@ -1,18 +1,16 @@
 #include <DHT.h>
 
-#include <SPI.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Arduino.h>
 
 #include "StateManager.h"
+#include "DisplayManager.h"
 
 #define BUTTON_PIN 15
 #define DHT22_PIN 14
 #define SDA_PIN 4
 #define SCL_PIN 5
-#define SCREEN_ADDRESS 0x3C
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 32
@@ -26,7 +24,7 @@ enum State currState = BOTH;
 int buttonPressed = 0;
 
 DHT dht22(DHT22_PIN, DHT22);
-Adafruit_SSD1306 display(128, 32, &Wire, -1);
+DisplayManager dispMngr(SDA_PIN, SCL_PIN);
 StateManager btnManager;
 
 unsigned long prevBtnPressTime = 0;
@@ -52,17 +50,8 @@ void setup()
     // put your setup code here, to run once:
     Serial.begin(9600);
     pinMode(BUTTON_PIN, INPUT_PULLUP);
-    Wire.begin(SDA_PIN, SCL_PIN);
     dht22.begin();
-
-    display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS);
-
-    display.clearDisplay();
-    display.setTextColor(SSD1306_WHITE);
-    display.setTextSize(1);
-    display.setCursor(0, 0);
-    display.println("HELLO WORLD");
-    display.display();
+    dispMngr.begin();
 }
 
 void loop()
