@@ -12,7 +12,7 @@
 #define SCREEN_HEIGHT 32
 
 #define TEMP_READ_TIME 2500
-#define BTN_PRESS_INTERVAL 100
+#define BTN_PRESS_INTERVAL 200
 
 int buttonVal = 0;
 
@@ -56,7 +56,6 @@ void loop()
     if (buttonPressed && millis() - prevBtnPressTime >= BTN_PRESS_INTERVAL)
     {
         btnManager.setNextState();
-        Serial.println(btnManager.getStateString());
         prevBtnPressTime = millis();
     }
 
@@ -65,7 +64,16 @@ void loop()
         prevSensorReadTime = millis();
         tempVal = dht22.readTemperature();
         humVal = dht22.readHumidity();
-        printSensorVals(tempVal, humVal);
-        dispMngr.writeBoth(tempVal, humVal);
+        switch (btnManager.currState) {
+            case BOTH:
+                dispMngr.writeBoth(tempVal, humVal);
+            break;
+            case TEMP:
+                dispMngr.writeTemp(tempVal);
+            break;
+            case HUM:
+                dispMngr.writeHum(humVal);
+            break;
+        }
     }
 }
