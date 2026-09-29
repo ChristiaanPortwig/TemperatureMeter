@@ -1,9 +1,5 @@
 #include <DHT.h>
 
-#include <Wire.h>
-#include <Adafruit_SSD1306.h>
-#include <Arduino.h>
-
 #include "StateManager.h"
 #include "DisplayManager.h"
 
@@ -70,5 +66,6 @@ void loop()
         tempVal = dht22.readTemperature();
         humVal = dht22.readHumidity();
         printSensorVals(tempVal, humVal);
+        dispMngr.writeBoth(tempVal, humVal);
     }
 }
