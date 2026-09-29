@@ -31,11 +31,7 @@ float humVal;
 
 void printSensorVals(float tempVal, float humVal)
 {
-    Serial.println("called");
-
-    Serial.print("Temp: ");
     Serial.println(tempVal);
-    Serial.print("Hum: ");
     Serial.println(humVal);
 
     return;
@@ -58,22 +54,24 @@ void loop()
         btnManager.setNextState();
         prevBtnPressTime = millis();
     }
+    
 
     if (millis() - prevSensorReadTime >= TEMP_READ_TIME)
     {
         prevSensorReadTime = millis();
         tempVal = dht22.readTemperature();
         humVal = dht22.readHumidity();
-        switch (btnManager.currState) {
-            case BOTH:
-                dispMngr.writeBoth(tempVal, humVal);
-            break;
-            case TEMP:
-                dispMngr.writeTemp(tempVal);
-            break;
-            case HUM:
-                dispMngr.writeHum(humVal);
-            break;
-        }
+    }
+
+    switch (btnManager.currState) {
+        case BOTH:
+            dispMngr.writeBoth(tempVal, humVal);
+        break;
+        case TEMP:
+            dispMngr.writeTemp(tempVal);
+        break;
+        case HUM:
+            dispMngr.writeHum(humVal);
+        break;
     }
 }
