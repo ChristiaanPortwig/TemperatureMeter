@@ -14,5 +14,6 @@ class DisplayManager{
         uint8_t sdaPin;
         uint8_t sclPin;
         int width = 128;
-        int height = 32;        
+        int height = 32;
+        void drawWaveAnim(unsigned long, int);        
 };
