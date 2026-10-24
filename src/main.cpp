@@ -75,3 +75,5 @@ void loop()
         break;
     }
 }
+
+//dispMngr.freeAll();
