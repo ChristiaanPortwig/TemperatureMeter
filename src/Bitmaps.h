@@ -40,3 +40,19 @@ extern const unsigned char epd_bitmap_snowman_frame_15 [] PROGMEM;
 
 extern const int epd_bitmap_allSnowmanArray_LEN;
 extern const unsigned char* epd_bitmap_allSnowmanArray[] PROGMEM;
+
+
+extern const unsigned char epd_bitmap_running_frame_0 [] PROGMEM;
+extern const unsigned char epd_bitmap_running_frame_1 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_2 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_3 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_4 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_5 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_6 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_7 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_8 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_9 [] PROGMEM; 
+extern const unsigned char epd_bitmap_running_frame_10 [] PROGMEM; 
+
+extern const int epd_bitmap_allRunningArray_LEN = 11;
+extern const unsigned char* epd_bitmap_allRunningArray[11];

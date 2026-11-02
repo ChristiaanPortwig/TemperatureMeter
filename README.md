@@ -15,4 +15,12 @@ It was enough effort to draw these animations.
 
 ## Citations
 - [Converting images to bitmaps](https://javl.github.io/image2cpp/)
-- [Wave Reference Image](https://www.shutterstock.com/image-vector/stylized-pixel-art-depiction-breaking-260nw-2696139559.jpg)
+- [Drawing animations](https://www.pixilart.com/)
+- Designing snap fit joints:
+    - https://formlabs.com/global/blog/designing-3d-printed-snap-fit-enclosures/
+    - https://www.hubs.com/knowledge-base/how-design-snap-fit-joints-3d-printing/#what-are-common-problems-with-designing-snap-fit-joints
+
+- Where I did use AI (Mostly ChatGPT)
+    - If I wanted to know more and couldn't find resources online:
+        - Understanding some of the module implementation code
+    - Converting weird file formats to `stl` so I can import it into fusion 360 to design the case

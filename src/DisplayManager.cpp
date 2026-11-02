@@ -69,16 +69,22 @@ void DisplayManager::writeBoth(float temp, float hum) {
     display.println(temp);
     display.println("Hum: ");
     display.println(hum);
-    drawWaveAnim(150);
-    //drawSnowflakeAnim(45, 150);
+
+    if (temp < 16) {
+        drawSnowmanAnim(150);
+        drawSnowflakeAnim(15, 150);
+    } else {
+        drawWaveAnim(150);
+    }
+
     display.display();
 }
 
 void DisplayManager::drawWaveAnim(int waitTime = 150) {
 
     if (millis() - lastAnimUpdate > waitTime) {
-        last_wave_frame ++;
-        last_wave_frame = last_wave_frame % epd_bitmap_allWavesArray_LEN;
+        lastWaveFrame ++;
+        lastWaveFrame = lastWaveFrame % epd_bitmap_allWavesArray_LEN;
         lastAnimUpdate = millis();
     }
 
@@ -86,7 +92,22 @@ void DisplayManager::drawWaveAnim(int waitTime = 150) {
     display.drawBitmap(
     ANIM_TOP_LEFT_X,
     ANIM_TOP_LEFT_Y,
-    epd_bitmap_allWavesArray[last_wave_frame], ANIM_WIDTH, ANIM_HEIGHT, 1);
+    epd_bitmap_allWavesArray[lastWaveFrame], ANIM_WIDTH, ANIM_HEIGHT, 1);
+}
+
+void DisplayManager::drawSnowmanAnim(int waitTime = 150) {
+
+    if (millis() - lastAnimUpdate > waitTime) {
+        lastSnowmanFrame ++;
+        lastSnowmanFrame = lastSnowmanFrame % epd_bitmap_allSnowmanArray_LEN;
+        lastAnimUpdate = millis();
+    }
+
+    //Assuming clear and display is called externally
+    display.drawBitmap(
+    ANIM_TOP_LEFT_X,
+    ANIM_TOP_LEFT_Y,
+    epd_bitmap_allSnowmanArray[lastSnowmanFrame], ANIM_WIDTH, ANIM_HEIGHT, 1);
 }
 
 void DisplayManager::drawSnowflakeAnim(int snowflakeAmount, int waitTime = 150) {
@@ -97,7 +118,7 @@ void DisplayManager::drawSnowflakeAnim(int snowflakeAmount, int waitTime = 150) 
 
         for (int i = 0; i < snowflakeAmount; i++) {
             int tempX = rand() % (ANIM_WIDTH) + (width - ANIM_WIDTH);
-            int tempDelta = rand() % 6 + 1; //random from 1 - 6
+            int tempDelta = rand() % 3 + 1; //random from 1 - 3
 
             snowflakes[i].x = tempX;
             snowflakes[i].y = 0;
@@ -140,7 +161,7 @@ void DisplayManager::drawSnowflakeAnim(int snowflakeAmount, int waitTime = 150) 
             snowflakeBitmap,
             SNOWFLAKE_DIM,
             SNOWFLAKE_DIM,
-            1
+            0
         );
     }
 }
