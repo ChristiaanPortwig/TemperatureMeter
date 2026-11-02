@@ -38,7 +38,6 @@
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
     [ "esp:3V3", "dht1:VCC", "red", [ "h0" ] ],
     [ "dht1:SDA", "esp:14", "green", [ "v0" ] ],
-    [ "r1:2", "esp:3V3", "#8f4814", [ "h46.8", "v-38.4" ] ],
     [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
     [ "btn1:2.r", "esp:15", "green", [ "h67.4", "v240.2" ] ],
     [ "btn1:1.r", "esp:GND.3", "green", [ "v-28.8", "h-76.6", "v211.2" ] ],

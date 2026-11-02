@@ -54,5 +54,5 @@ extern const unsigned char epd_bitmap_running_frame_8 [] PROGMEM;
 extern const unsigned char epd_bitmap_running_frame_9 [] PROGMEM; 
 extern const unsigned char epd_bitmap_running_frame_10 [] PROGMEM; 
 
-extern const int epd_bitmap_allRunningArray_LEN = 11;
-extern const unsigned char* epd_bitmap_allRunningArray[11];
+extern const int epd_bitmap_allRunningArray_LEN;;
+extern const unsigned char* epd_bitmap_allRunningArray[] PROGMEM;

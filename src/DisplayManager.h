@@ -26,9 +26,14 @@ class DisplayManager{
 
         int lastWaveFrame = 0;
         void drawWaveAnim(int);        
+
         unsigned long lastSnowflakeUpdate = 0;
         Snowflake *snowflakes = NULL;
         void drawSnowflakeAnim(int, int);
+
         int lastSnowmanFrame = 0;
         void drawSnowmanAnim(int);
+
+        int lastRunningFrame = 0;
+        void drawRunningAnim(int);
 };

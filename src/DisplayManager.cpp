@@ -73,6 +73,8 @@ void DisplayManager::writeBoth(float temp, float hum) {
     if (temp < 16) {
         drawSnowmanAnim(150);
         drawSnowflakeAnim(15, 150);
+    } else if (temp < 25){
+        drawRunningAnim(150);
     } else {
         drawWaveAnim(150);
     }
@@ -108,6 +110,21 @@ void DisplayManager::drawSnowmanAnim(int waitTime = 150) {
     ANIM_TOP_LEFT_X,
     ANIM_TOP_LEFT_Y,
     epd_bitmap_allSnowmanArray[lastSnowmanFrame], ANIM_WIDTH, ANIM_HEIGHT, 1);
+}
+
+void DisplayManager::drawRunningAnim(int waitTime = 150) {
+
+    if (millis() - lastAnimUpdate > waitTime) {
+        lastRunningFrame ++;
+        lastRunningFrame = lastRunningFrame % epd_bitmap_allRunningArray_LEN;
+        lastAnimUpdate = millis();
+    }
+
+    //Assuming clear and display is called externally
+    display.drawBitmap(
+    ANIM_TOP_LEFT_X,
+    ANIM_TOP_LEFT_Y,
+    epd_bitmap_allRunningArray[lastRunningFrame], ANIM_WIDTH, ANIM_HEIGHT, 1);
 }
 
 void DisplayManager::drawSnowflakeAnim(int snowflakeAmount, int waitTime = 150) {
