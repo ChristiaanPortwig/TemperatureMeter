@@ -14,17 +14,17 @@ Using Autodesk fusion for the first time in a few years was also really fun.
 I used the Platformio VSCode extension to build the code and flash it onto the esp8266. I used wokwi to simulate the project before I actually built it.
 
 <figure>
-    <img width="3024" height="4032" alt="IMG_5780" src="https://github.com/user-attachments/assets/2bd06ee9-9c3a-4697-b8c4-df8183e87bd0" />
+    <img width="1008" height="1344" alt="IMG_5780" src="https://github.com/user-attachments/assets/2bd06ee9-9c3a-4697-b8c4-df8183e87bd0" />
     <figcaption>Me testing that all the pins work correctly after soldering onto the board</figcaption>
 </figure>
 
 <figure>
-    <img width="3024" height="4032" alt="IMG_5783" src="https://github.com/user-attachments/assets/d63aed78-9d91-44ca-8f5c-e3affffe3570" />
+    <img width="1008" height="1344" alt="IMG_5783" src="https://github.com/user-attachments/assets/d63aed78-9d91-44ca-8f5c-e3affffe3570" />
     <figcaption>First run after flashing... not everything worked, I was using some dangerous pins (15), that causes boot to fail if pulled high (which I think I did, since my buttons use a pullup resistor).</figcaption>
 </figure>
 
 <figure>
-    <img width="3024" height="4032" alt="IMG_5788" src="https://github.com/user-attachments/assets/cd7d0454-c8de-4f8c-a964-2a2e99ac1391" />
+    <img width="1008" height="1344" alt="IMG_5788" src="https://github.com/user-attachments/assets/cd7d0454-c8de-4f8c-a964-2a2e99ac1391" />
     <figcaption>First time working!!!</figcaption>
 </figure>
 
